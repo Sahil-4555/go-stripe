@@ -1,0 +1,82 @@
+{
+  "_meta": {
+    "template_version": 0
+  },
+  "fixtures": [
+    {
+      "name": "basic_subscription",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Basic Subscription"
+      }
+    },
+    {
+      "name": "basic_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${basic_subscription:id}",
+        "lookup_key": "basic_subscription",
+        "currency": "usd",
+        "unit_amount": 1999,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    },
+    {
+      "name": "premium_subscription",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Premium Subscription"
+      }
+    },
+    {
+      "name": "premium_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${premium_subscription:id}",
+        "lookup_key": "premium_subscription",
+        "currency": "usd",
+        "unit_amount": 4999,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    },
+    {
+      "name": "enterprise_subscription",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Enterprise Subscription"
+      }
+    },
+    {
+      "name": "enterprise_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${enterprise_subscription:id}",
+        "lookup_key": "enterprise_subscription",
+        "currency": "usd",
+        "unit_amount": 9999,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    }
+  ]
+}
